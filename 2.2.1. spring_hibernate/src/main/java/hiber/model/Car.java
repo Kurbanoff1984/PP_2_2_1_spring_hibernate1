@@ -5,14 +5,16 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cars")
 public class Car {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "user_id")
     private int id;
     @Column(name = "model")
     private String model;
     @Column(name = "series")
     private int series;
-    @OneToOne(mappedBy = "userCar", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name ="user_id")
     private User user;
 
     public Car() {
@@ -54,7 +56,6 @@ public class Car {
     public void setUser(User user) {
         this.user = user;
     }
-
 
     @Override
     public String toString() {

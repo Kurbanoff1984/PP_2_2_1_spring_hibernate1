@@ -32,4 +32,5 @@ public class UserServiceImp implements UserService {
         return userDao.getUserForHisCar(model, series);
     }
 
+
 }
